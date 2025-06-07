@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<!-- Mirrored from hksngu.github.io/Maa-Vaishno-Devi-Seva-Samiti-Patna/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Jun 2025 11:55:02 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>मां वैष्णो देवी सेवा समिति, पटना</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+  </head>
+  <body>
+    <div id="home">
+      <div id="head">
+        <div id="brand">
+          <img src="brand.png" />
+          <h1>मां वैष्णो देवी सेवा समिति, पटना</h1>
+          <img src="brand.png" />
+        </div>
+
+        <h3>सामूहिक शुभ विवाह</h3>
+        <hr />
+        <p class="p1">
+          14 जुलाई 2024 को माँ वैष्णो देवी सेवा समिति द्वारा 51 जोड़ों का
+          सामूहिक मंगल विवाह समारोह आयोजित किया जायेगा।
+        </p>
+        <p>
+          <em>परिणय स्थल : श्री कृष्ण मेमोरियल हॉल गांधी मैदान, पटना</em>
+        </p>
+      </div>
+      <div id="form">
+        <h3 id="form_head">Register & Join Our Event</h3>
+        <input
+          type="text"
+          id="input_name"
+          name="input_name"
+          placeholder="Your Name"
+        />
+        <input
+          type="text"
+          id="input_mob"
+          name="input_mob"
+          placeholder="Contact Number"
+        />
+
+        <label id="input_btn" for="input_img">Your Photo</label>
+        <input
+          type="file"
+          accept="image/jpeg, image/png, image/jpg"
+          id="input_img"
+        />
+        <a id="generate_btn" onclick="generate()">Generate E-Card</a>
+        <a id="download_btn">Download E-Card</a>
+      </div>
+
+      <div class="container" id="e-card">
+        <div id="card_head">
+          <h1>Invitation-E-Card</h1>
+        </div>
+        <img
+          class="card_img"
+          src="/newcard.jpg"
+        />
+        <div class="card_content">
+          <div class="user_container">
+            <img id="user_img" src="user_img.jpg" />
+            <div class="user_details">
+              <p>
+                Visitor's Name : <span id="user_full_name">Himanshu Kumar</span>
+              </p>
+              <p>Contact No : <span id="user_mob_num">8603149030</span></p>
+              <p>E-Card ID : <span id="user_card_id">11111111</span></p>
+            </div>
+          </div>
+        </div>
+        <div id="intenext">
+          <h1>Powered by Intenext Solutions Pvt Ltd</h1>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+    <script>
+      var img_url = "";
+      const input_image = document.getElementById("input_img");
+
+      input_image.addEventListener("change", (e) => {
+        const file = input_image.files[0];
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+          img_url = reader.result;
+          var user_image = document.getElementById("user_img");
+
+          user_image.src = img_url;
+        });
+
+        reader.readAsDataURL(file);
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        var element = $("#e-card");
+
+        $("#download_btn").on("click", function () {
+          html2canvas(element, {
+            onrendered: function (canvas) {
+              var imageData = canvas.toDataURL("image/jpg");
+              var newData = imageData.replace(
+                /^data:image\/jpg/,
+                "data:application/octet-stream"
+              );
+              $("#download_btn")
+                .attr("download", "image.html")
+                .attr("href", newData);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+
+<!-- Mirrored from hksngu.github.io/Maa-Vaishno-Devi-Seva-Samiti-Patna/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Jun 2025 11:55:04 GMT -->
+</html>
